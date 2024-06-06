@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Details</title>
+</head>
+<body>
+    <h2>Customer: {{ customer.name }}</h2>
+    <p>Email: {{ customer.email }}</p>
+    <p>Phone Number: {{ customer.phone_number }}</p>
+    <h3>Cars</h3>
+    <ul>
+        {% for car in cars %}
+            <li>{{ car.make }} {{ car.model }} ({{ car.year }})</li>
+        {% endfor %}
+    </ul>
+    <h3>Appointments</h3>
+    <ul>
+        {% for appointment in appointments %}
+            <li>
+                {{ appointment.service.name }} for {{ appointment.car.make }} {{ appointment.car.model }} on {{ appointment.date_time }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('customeradminview.index') }}">Back to Customers</a>
+</body>
+</html>

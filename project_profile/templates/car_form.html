@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/car-form.css') }}">
+    <title>Add/Edit Car</title>
+</head>
+<body>
+    <div>
+        <h1>{{ 'Add car' if request.endpoint == 'add_car' else 'Edit car' }}</h1>
+        <div class="form-container">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.make.label(class="form-label") }}
+                    {{ form.make(class="form-input") }}
+                </div>
+                <div class="form-group">
+                    {{ form.model.label(class="form-label") }}
+                    {{ form.model(class="form-input") }}
+                </div>
+                <div class="form-group">
+                    {{ form.year.label(class="form-label") }}
+                    {{ form.year(class="form-input") }}
+                </div>
+                <div class="form-group">{{ form.submit(class="form-submit") }}</div>
+                <div class="center">
+                    <a class="back" href="{{ url_for('user_profile') }}">Back to profile</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

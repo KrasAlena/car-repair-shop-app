@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to AutoRepair</h1>
+    <p>Your trusted partner in car maintenance and repair.</p>
+    <p>At AutoRepair, we specialise in providing dedicated Hire Car Management Services.<br>Our focus is on closely managing the supply and booking of hire cars, whether it's end-to-end services or a specific portion based on your needs.</p>
+    <div class="services">
+        <div class="service-card">Oil changing</div>
+        <div class="service-card">Tire replacement</div>
+        <div class="service-card">Brake inspection</div>
+        <div class="service-card">Engine diagnostic</div>
+    </div>
+    <div class="links">
+        <a class="become_customer" href="{{  url_for('become_customer')  }}">Become a customer</a>
+        <a class="login" href="{{  url_for('login')  }}">Already a customer? Login</a>
+    </div>
+</body>
+</html>

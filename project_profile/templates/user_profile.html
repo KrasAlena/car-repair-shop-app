@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <title>User Profile</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to your personal repair assistant</h1>
+    <h3>Customer: {{ name }}</h3>
+    <hr class="line bold">
+    <h2>Your cars</h2>
+    <ul class="car-list">
+        {% for car in cars %}
+            <li>
+                {{ car.make }} {{ car.model }} ({{ car.year }})
+                <a class="edit" href="{{ url_for('edit_car', car_id=car.id) }}">Edit</a> |
+                <form action="{{ url_for('delete_car', car_id=car.id) }}" method="POST" style="display:inline;">
+                    <button class="delete" type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a class="btn add" href="{{ url_for('add_car') }}">Add car</a>
+    <hr class="line">
+    <h2>Book a service</h2>
+    <div class="center">
+        <a class="btn services" href="{{ url_for('view_services') }}">View services and book appointment</a>
+    </div>
+    <hr class="line">
+    <h2>Your appointments</h2>
+    <ul class="appointment-list">
+        {% for appointment in appointments %}
+            <li>
+                {{ appointment.service.name }} for {{ appointment.car.make }} {{ appointment.car.model }} on {{ appointment.date_time }}
+                <form action="{{ url_for('cancel_appointment', appointment_id=appointment.id) }}" method="POST" style="display:inline;">
+                     |
+                    <button class="delete" type="submit">Cancel</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <hr class="line">
+    <div class="center">
+        <p><a class="btn" href="{{ url_for('logout') }}">Logout</a></p>
+    </div>
+    </div>
+</body>
+</html>

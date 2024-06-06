@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book an Appointment</title>
+</head>
+<body>
+    <h1>Book an Appointment</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.car_id.label }}<br>
+            {{ form.car_id }}
+        </p>
+        <p>
+            {{ form.service_id.label }}<br>
+            {{ form.service_id }}
+        </p>
+        <p>
+            {{ form.date_time.label }}<br>
+            {{ form.date_time }}
+        </p>
+        <p>{{ form.submit }}</p>
+    </form>
+    <a href="{{ url_for('user_profile') }}">Back to Profile</a>
+</body>
+</html>

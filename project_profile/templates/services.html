@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services</title>
+</head>
+<body>
+    <h1>Available services</h1>
+    <ul>
+        {% for service in services %}
+            <li>
+                <strong>{{ service.name }}</strong>: {{ service.description }} (Estimated cost: ${{ service.estimated_cost }})
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('book_appointment') }}">Book an appointment</a>
+    <a href="{{ url_for('user_profile') }}">Back to profile</a>
+</body>
+</html>
